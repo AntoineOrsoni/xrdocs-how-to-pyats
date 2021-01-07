@@ -107,7 +107,7 @@ device.connect(init_exec_commands=[],
 
 ### diconnect() quickly
 
-To avoid waiting ~10 seconds to disconnect on the device, you can edit your `testbed.yaml` file as such:
+To avoid waiting ~10 seconds to disconnect from the device, you can edit your `testbed.yaml` file as such:
 
 ```yaml
     connections:
