@@ -1,3 +1,9 @@
+# Intro
+
+This repo is mainly inspired of [this repo](https://github.com/AntoineOrsoni/pyats-devnet-se-hour) on IOS XE. 
+
+It gives an overview of pyATS possibilities. As any overview, it's not intended to be exhaustive.
+
 # Pre-requisites
 ## Testbed
 

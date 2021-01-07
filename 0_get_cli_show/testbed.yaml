@@ -1,0 +1,13 @@
+devices:
+  iosxr1:
+    type: iosxr-devnet
+    os: iosxr
+    credentials:
+      default:
+        username: admin
+        password: C1sco12345
+    connections:
+      vty:
+        protocol: ssh
+        ip: sbx-iosxr-mgmt.cisco.com
+        port: 8181
