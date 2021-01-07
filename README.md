@@ -29,11 +29,18 @@ In the first exercice, we will connect to the device and get an unstructued show
 ### Output example
 
 ```
-Interface              IP-Address      OK? Method Status                Protocol
-GigabitEthernet1       10.10.20.48     YES other  up                    up      
-GigabitEthernet2       unassigned      YES NVRAM  administratively down down    
-GigabitEthernet3       unassigned      YES NVRAM  up                    up      
-Loopback11             1.2.3.1         YES other  up                    up  
+Interface                      IP-Address      Status          Protocol Vrf-Name
+Loopback100                    1.1.1.100       Up              Up       default 
+Loopback200                    1.1.1.200       Up              Up       default 
+Loopback999                    unassigned      Up              Up       default 
+MgmtEth0/RP0/CPU0/0            10.10.20.175    Up              Up       default 
+GigabitEthernet0/0/0/0         unassigned      Shutdown        Down     default 
+GigabitEthernet0/0/0/1         unassigned      Shutdown        Down     default 
+GigabitEthernet0/0/0/2         unassigned      Shutdown        Down     default 
+GigabitEthernet0/0/0/3         unassigned      Shutdown        Down     default 
+GigabitEthernet0/0/0/4         unassigned      Shutdown        Down     default 
+GigabitEthernet0/0/0/5         unassigned      Shutdown        Down     default 
+GigabitEthernet0/0/0/6         unassigned      Shutdown        Down     default
 ```
 
 ### Complete instructions
