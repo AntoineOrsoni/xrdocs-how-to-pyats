@@ -12,10 +12,6 @@ GigabitEthernet3       unassigned      YES NVRAM  up                    up
 Loopback11             1.2.3.1         YES other  up  
 ```
 
-## Folders
-
-The file with the exercise is in the `exercise` folder. An example of solution can be found in the `solution_example` folder.
-
 ## Steps
 
 ### Step 0
@@ -28,7 +24,7 @@ Load the testbed. Use the `loader.load()` API. Fore more information about the `
 
 A `testbed` is a `pyats.topology.testbed.Testbed` object. It has a `devices` attribute, which is a dictionnary of all devices in the testbed. 
 * Try to print it.
-* Extract the `csr1000v` device. 
+* Extract the `iosxr1` device. 
 
 ### Step 2
 
@@ -46,7 +42,7 @@ device.connect(init_exec_commands=[],
 
 ### Step 3
 
-Use the `execute()` method on the `csr1000v` object to send a CLI command to the device. Get the `show interface brief` output, and save it in a variable.
+Use the `execute()` method on the `iosxr1` object to send a CLI command to the device. Get the `show interface brief` output, and save it in a variable.
 
 More information about the `execute()` method here:
 
@@ -55,3 +51,7 @@ More information about the `execute()` method here:
 ### Step 4
 
 Print the output.
+
+### Step 5
+
+Use the `disconnect()` method to disconnect from `iosxr1`.
