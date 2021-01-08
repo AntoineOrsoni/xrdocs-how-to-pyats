@@ -9,7 +9,7 @@ devices:
       default:
         username: admin
         password: C1sco12345
-    # Step 3: connections parameters
+    # Step 3: connection parameters
     connections:
       vty:
         protocol: ssh
