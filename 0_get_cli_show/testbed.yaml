@@ -1,11 +1,15 @@
+# Step 0: list of devices
 devices:
   iosxr1:
+    # Step 1: OS and Type
     type: iosxr-devnet
     os: iosxr
+    # Step 2: credentials
     credentials:
       default:
         username: admin
         password: C1sco12345
+    # Step 3: connections parameters
     connections:
       vty:
         protocol: ssh
