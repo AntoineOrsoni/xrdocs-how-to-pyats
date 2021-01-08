@@ -1,3 +1,7 @@
+This example is further detailed in the blog post below.
+
+> https://xrdocs.io/programmability/tutorials/pyats-series-install-and-use-pyats/
+
 # 0. Get CLI show command output
 
 In the first exercice, we will connect to the device and get an unstructued show command output (ex: `show ip interface brief`).
