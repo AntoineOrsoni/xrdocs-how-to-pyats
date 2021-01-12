@@ -1,7 +1,7 @@
 from pyats.topology import loader
 
 # Step 0: load the testbed
-testbed = loader.load(./testbed.yaml')
+testbed = loader.load('./testbed.yaml')
 
 # Step 1: testbed is a dictionnary. Extract the device iosxr1
 iosxr1 = testbed.devices["iosxr1"]
