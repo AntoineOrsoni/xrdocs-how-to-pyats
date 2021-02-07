@@ -8,6 +8,8 @@ In the first exercice, we will connect to the device and get an unstructued show
 
 ## Output example
 
+The below output might differ, depending on the device's current configuration.
+
 ```
 Interface                      IP-Address      Status          Protocol Vrf-Name
 Loopback100                    1.1.1.100       Up              Up       default 

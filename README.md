@@ -47,6 +47,29 @@ GigabitEthernet0/0/0/6         unassigned      Shutdown        Down     default
 
 [Complete instructions can be found here](0_get_cli_show/README.md)
 
+## 1. Get structured show command output
+
+In the second exercice, we will leverage Genie parsers to get a structured output (JSON). Complete list of interfaces.
+
+### Output example
+
+```
+Loopback333 -- 3.3.3.3
+Loopback99 -- 99.99.99.99
+Loopback11 -- 1.2.3.1
+GigabitEthernet2 -- Unassigned
+GigabitEthernet1 -- 10.10.20.48
+GigabitEthernet3 -- Unassigned
+```
+
+### Complete instructions
+
+[Complete instructions can be found here](1_structured_output/README.md)
+
+### Genie parsers documentation
+
+> https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers
+
 # pyATS documentation
 ## Official documentation
 
