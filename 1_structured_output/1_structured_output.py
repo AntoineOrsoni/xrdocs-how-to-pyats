@@ -1,6 +1,5 @@
 # New module! Now using genie!
 from genie import load
-import os
 
 # Step 0: load the testbed
 testbed = testbed.load('./testbed.yaml')
