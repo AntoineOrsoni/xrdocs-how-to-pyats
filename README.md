@@ -47,9 +47,9 @@ GigabitEthernet0/0/0/6         unassigned      Shutdown        Down     default
 
 [Complete instructions can be found here](0_get_cli_show/README.md)
 
-## 1. Get structured show command output
+## 1. Get parsed show command output
 
-In the second exercice, we will leverage Genie parsers to get a structured output (JSON). Complete list of interfaces.
+In the second exercice, we will leverage Genie parsers to get a parsed output (JSON). Complete list of interfaces.
 
 ### Output example
 
@@ -64,7 +64,7 @@ GigabitEthernet3 -- Unassigned
 
 ### Complete instructions
 
-[Complete instructions can be found here](1_structured_output/README.md)
+[Complete instructions can be found here](1_parsed_output/README.md)
 
 ### Genie parsers documentation
 
