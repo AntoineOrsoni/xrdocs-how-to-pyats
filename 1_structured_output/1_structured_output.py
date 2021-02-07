@@ -1,4 +1,4 @@
-# New module! Now using genie!
+# New module! Now using Genie!
 from genie import testbed
 
 # Step 0: load the testbed
