@@ -1,9 +1,9 @@
 # New module! Now using genie!
-from genie.testbed import load
+from genie import load
 import os
 
 # Step 0: load the testbed
-testbed = load('./testbed.yaml')
+testbed = testbed.load('./testbed.yaml')
 
 # Step 1: testbed is a dictionnary. Extract the device iosxr1
 iosxr1 = testbed.devices["iosxr1"]
