@@ -47,62 +47,86 @@ device.connect(init_exec_commands=[],
                log_stdout=False)
 ```
 
-## File 0 - Noob version
+### Step 0: load the testbed
 
-On this first file, for each device in the testbed, we are going to use a Genie Parser to get the IP address on all interfaces.
+From the `genie` module, we import the `testbed.load()` function. This function will be used to load the testbed file we have created.
 
-### Step 0
+We load the `testbed` information, stored in our `testbed.yaml` file. We assign it to an object: `testbed`.
 
-Create a loop: we are going to print details for each `device` in the `testbed`.
+### Step 1: iterate through each device in the testbed
 
-### Step 1
+`testbed` object has an `iterator` capability. When used, it returns each `device` object in the testbed. We will iterate through each device in the testbed, connect and populate our model.
 
-Use the `connect()` method to connect on the device. See the above documentation. The `connect()` method is explained here:
+### Step 2: connect to the device
 
-> https://pubhub.devnetcloud.com/media/pyats/docs/connections/manager.html#method-instantiate-connect
+We use the `connect()` method on the `iosxr1` object to connect to the device.
 
-Use one of the device attribute to print the name of the device.
+By default, pyATS will send exec and configuration commands to the device (such as `terminal length 0` and `show version`). To avoid such behavior, we are passing arguments to the `conect()` method. We are also disabling the logging to standard output.
+More information in the [documentation].(https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/connection.html)
+{: .notice--info}
 
-### Step 2
+### Step 3: learn `interface` model from the device
 
-Use Genie Parser to parse `show ip interface brief` command. Parsers allows you to parse show commands into structured output (JSON/Dictionary).
+This step is the most important step in our script. It will `Learn` the `interface` model. pyATS will send **multiple show-commands** to the device in order to fully populate the model. Each information of the CLI output will be mapped either as a dictionary key or a value. Because we need to have the same keys between models, there could be entropy loss between the raw CLI output and the parsed output. For example, if an operational data is unique to an OS.
 
-Navigate through the dictionnary. Extract each interface name, and its IP address.
+To do so, we are using the `learn()` method on the `device` object. The `learn` method takes a string as parameter, which is the model we would like to collect and parse. We are saving this parsed output in a variable `show_interface`.
 
-Genie `parse()` method documentation can be found here:
+You can find all pyATS supported **models** in the [official documentation](https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models).
+{: .notice--info}
 
-> https://developer.cisco.com/docs/genie-docs/
+A parsed output example (i.e. the dictionary saved in the variable `show_interface`) can be seen in **Step 4**. 
 
-Genie available parsers can be found here:
+### Step 4: Python logic to print interface name and IP
 
-> https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models
+Below an example of parsed output for the `interface` model. Most interfaces are **missing** (only one is shown), for conciseness.
 
-### Step 3
+**Parsed CLI output**
+{: .notice--primary}
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>
+{'GigabitEthernet0/0/0/0': {'bandwidth': 1000000,
+                            'counters': {'in_broadcast_pkts': 0,
+                                         'in_crc_errors': 0,
+                                         'in_discards': 0,
+                                         'in_multicast_pkts': 0,
+                                         'in_octets': 0,
+                                         'in_pkts': 0,
+                                         'last_clear': 'never',
+                                         'out_broadcast_pkts': 0,
+                                         'out_errors': 0,
+                                         'out_multicast_pkts': 0,
+                                         'out_octets': 0,
+                                         'out_pkts': 0,
+                                         'rate': {'in_rate': 0,
+                                                  'in_rate_pkts': 0,
+                                                  'load_interval': 300,
+                                                  'out_rate': 0,
+                                                  'out_rate_pkts': 0}},
+                            'enabled': False,
+                            'encapsulation': {'encapsulation': 'arpa'},
+                            'flow_control': {'flow_control_receive': False,
+                                             'flow_control_send': False},
+                            'ipv6': {'enabled': False},
+                            'mac_address': '0050.56bb.4247',
+                            'mtu': 1514,
+                            'oper_status': 'down',
+                            'phys_address': '0050.56bb.4247',
+                            'type': 'gigabitethernet'}
+</code>
+</pre>
+</div>
 
-Use the `disconnect()` method on each device to nicely disconnect from the device. Otherwise, you may exhaust the number of available VTY lines.
+In the above output, we have a list of interfaces: `GigabitEthernet0/0/0/0` (others are **not** shown for conciseness). We are iterating through this list. For each interface, we are accessing the `ip_address` value. We're then printting the interface `name` and `IP`. 
 
-## File 1 - Pro version
+The `info` attribute of the `Interface` object returns a Python dictionnary. We are iterating through this dictionnary items. It's return all the `tuples` of `key: values` of this dictionnary.
 
-### Step 0, Step 1, Step 3
+It might not be useful in a real life use case. Goal here is to take a concise example, to show how easy it is to extract values of a CLI output when parsed with pyATS libraries.
+{: .notice--info}
 
-You can reuse the code you did for `File 0`. Dont forget to `diconnect()` from each device.
+### Step 5: disconnect from the device
 
-### Step 1
+We use the `disconnect()` method to properly disconnect from the device. 
 
-You can reuse the code you did for `File 0`.
-
-### Step 2
-
-Instead of learning a few cli at the time, you can learn the whole feature and have it into 1 structured output (JSON/Dictionary). This structure is agnostic between all OS (i.e. identical between all the OS).
-
-You can read about the Genie `parse()` method here:
-
-> https://pubhub.devnetcloud.com/media/genie-docs/docs/cookbooks/explore.html?highlight=genie%20testbed#learn-devices-features-into-structured-output
-
-You can find all Genie supported models here:
-
-> https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models
-
-### Step 2 - Bonus
-
-What if the key `ipv4` doesn't exist (no assigned IPv4 address). For such interface, print `unassigned` instead of the empty address.
+It’s important to properly disconnect from the device, otherwise the vty connection will remain open on the device, until it times out.
+{: .notice--info}
