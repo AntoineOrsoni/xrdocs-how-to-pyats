@@ -1,0 +1,32 @@
+# Step 0: list of devices
+devices:
+  iosxr1:
+    # Step 1: OS and Type
+    type: iosxr-devnet
+    os: iosxr
+    # Step 2: credentials
+    credentials:
+      default:
+        username: admin
+        password: C1sco12345
+    # Step 3: connection parameters
+    connections:
+      vty:
+        protocol: ssh
+        ip: sbx-iosxr-mgmt.cisco.com
+        port: 8181
+  csr1000v:
+    # Step 1: OS and Type
+    type: iosxe-devnet
+    os: iosxe
+    # Step 2: credentials
+    credentials:
+      default:
+        username: developer
+        password: C1sco12345
+    # Step 3: connection parameters
+    connections:
+      vty:
+        protocol: ssh
+        ip: ios-xe-mgmt.cisco.com
+        port: 8181

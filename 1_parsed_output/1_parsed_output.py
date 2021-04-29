@@ -4,7 +4,7 @@ from genie import testbed
 # Step 0: load the testbed
 testbed = testbed.load('./testbed.yaml')
 
-# Step 1: testbed is a dictionnary. Extract the device iosxr1
+# Step 1: testbed is a dictionary. Extract the device iosxr1
 iosxr1 = testbed.devices["iosxr1"]
 
 # Step 2: Connect to the device
