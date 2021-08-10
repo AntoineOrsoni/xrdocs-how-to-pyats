@@ -10,7 +10,7 @@ for device in testbed:
     print('')
 
     # Step 2: Connect on the device and print its name
-    device.connect(init_exec_commands=[], init_config_commands=[], log_stdout=False)
+    device.connect(init_exec_commands=[], init_config_commands=[], log_stdout=False, learn_hostname=True)
     
     print('-----------------------------------')
     print('-- Connected on device: {device} --'.format(device=device.alias))

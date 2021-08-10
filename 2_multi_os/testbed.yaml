@@ -13,8 +13,7 @@ devices:
     connections:
       vty:
         protocol: ssh
-        ip: sbx-iosxr-mgmt.cisco.com
-        port: 8181
+        ip: sandbox-iosxr-1.cisco.com
   csr1000v:
     # Step 1: OS and Type
     type: iosxe-devnet
@@ -28,5 +27,4 @@ devices:
     connections:
       vty:
         protocol: ssh
-        ip: ios-xe-mgmt.cisco.com
-        port: 8181
+        ip: sandbox-iosxe-recomm-1.cisco.com

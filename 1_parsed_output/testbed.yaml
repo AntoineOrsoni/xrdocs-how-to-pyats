@@ -13,5 +13,4 @@ devices:
     connections:
       vty:
         protocol: ssh
-        ip: sbx-iosxr-mgmt.cisco.com
-        port: 8181
+        ip: sandbox-iosxr-1.cisco.com

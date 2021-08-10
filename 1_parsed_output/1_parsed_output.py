@@ -8,7 +8,7 @@ testbed = testbed.load('./testbed.yaml')
 iosxr1 = testbed.devices["iosxr1"]
 
 # Step 2: Connect to the device
-iosxr1.connect(init_exec_commands=[], init_config_commands=[], log_stdout=False)
+iosxr1.connect(init_exec_commands=[], init_config_commands=[], log_stdout=False, learn_hostname=True)
 
 # Step 3: saving the `show ip interface brief` output in a variable
 show_interface = iosxr1.parse('show ip interface brief')
