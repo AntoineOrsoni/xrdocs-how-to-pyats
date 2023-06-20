@@ -6,7 +6,7 @@ testbed = testbed.load('/Users/anorsoni/Documents/Programmability/XRDocs/how-to-
 xrd1 = testbed.devices["xrd1"]
 source = testbed.devices["xrd-source"]
 xrd1.connect(learn_hostname=True, log_stdout=False)
-source.connect(learn_hostname=True, log_stdout=False)
+source.connect(learn_hostname=True, log_stdout=False, via='cli')
 
 print('xrd1 is connected =', xrd1.connected)
 print('source is connected =', source.connected)
