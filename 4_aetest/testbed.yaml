@@ -1,0 +1,284 @@
+testbed:
+  credentials:
+    default:
+      username: cisco
+      password: cisco123
+  servers:
+    js:
+      address: 10.48.35.164
+      credentials:
+        ssh:
+          username: cisco
+          password: cisco123
+
+devices:
+  jumphost:
+    os: linux
+    platform: linux
+    type: linux
+    connections:
+      cli:
+        ip: 10.48.35.164
+        port: 22
+        protocol: ssh
+  xrd1:
+    os: iosxr
+    platform: iosxrv
+    type: router
+    connections:
+      cli:
+        ip: 172.40.0.101
+        protocol: ssh
+        proxy: jumphost
+        port: 22
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+      netconf:
+        class: yang.connector.Netconf
+        ip: 172.40.0.101
+        port: 830
+        sshtunnel:
+          host: js
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+  xrd2:
+    os: iosxr
+    platform: iosxrv
+    type: router
+    connections:
+      cli:
+        ip: 172.40.0.102
+        proxy: jumphost
+        port: 22
+        protocol: ssh
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+      netconf:
+        class: yang.connector.Netconf
+        ip: 172.40.0.102
+        port: 830
+        sshtunnel:
+          host: js
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+  xrd3:
+    os: iosxr
+    platform: iosxrv
+    type: router
+    connections:
+      cli:
+        ip: 172.40.0.103
+        proxy: jumphost
+        port: 22
+        protocol: ssh
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+      netconf:
+        class: yang.connector.Netconf
+        ip: 172.40.0.103
+        port: 830
+        sshtunnel:
+          host: js
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+  xrd4:
+    os: iosxr
+    platform: iosxrv
+    type: router
+    connections:
+      cli:
+        ip: 172.40.0.104
+        proxy: jumphost
+        port: 22
+        protocol: ssh
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+      netconf:
+        class: yang.connector.Netconf
+        ip: 172.40.0.104
+        port: 830
+        sshtunnel:
+          host: js
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+  xrd5:
+    os: iosxr
+    platform: iosxrv
+    type: router
+    connections:
+      cli:
+        ip: 172.40.0.105
+        proxy: jumphost
+        port: 22
+        protocol: ssh
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+      netconf:
+        class: yang.connector.Netconf
+        ip: 172.40.0.105
+        port: 830
+        sshtunnel:
+          host: js
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+  xrd6:
+    os: iosxr
+    platform: iosxrv
+    type: router
+    connections:
+      cli:
+        ip: 172.40.0.106
+        proxy: jumphost
+        port: 22
+        protocol: ssh
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+      netconf:
+        class: yang.connector.Netconf
+        ip: 172.40.0.106
+        port: 830
+        sshtunnel:
+          host: js
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+  xrd7:
+    os: iosxr
+    platform: iosxrv
+    type: router
+    connections:
+      cli:
+        ip: 172.40.0.107
+        proxy: jumphost
+        port: 22
+        protocol: ssh
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+      netconf:
+        class: yang.connector.Netconf
+        ip: 172.40.0.107
+        port: 830
+        sshtunnel:
+          host: js
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+  xrd8:
+    os: iosxr
+    platform: iosxrv
+    type: router
+    connections:
+      cli:
+        ip: 172.40.0.108
+        proxy: jumphost
+        port: 22
+        protocol: ssh
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+      netconf:
+        class: yang.connector.Netconf
+        ip: 172.40.0.108
+        port: 830
+        sshtunnel:
+          host: js
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+  xrd-source:
+    os: iosxr
+    platform: iosxrv
+    type: router
+    connections:
+      cli:
+        ip: 172.40.0.200
+        proxy: jumphost
+        port: 22
+        protocol: ssh
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+      netconf:
+        class: yang.connector.Netconf
+        ip: 172.40.0.200
+        port: 830
+        sshtunnel:
+          host: js
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+  xrd-dest:
+    os: iosxr
+    platform: iosxrv
+    type: router
+    connections:
+      cli:
+        ip: 172.40.0.201
+        proxy: jumphost
+        port: 22
+        protocol: ssh
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+      netconf:
+        class: yang.connector.Netconf
+        ip: 172.40.0.201
+        port: 830
+        sshtunnel:
+          host: js
+        settings:
+          GRACEFUL_DISCONNECT_WAIT_SEC: 0
+          POST_DISCONNECT_WAIT_SEC: 0
+          init_exec_commands: []
+          log_stdout: False
+
